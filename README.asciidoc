@@ -2,9 +2,33 @@
 
 == Day 1 ==
 
-Lecture: Android Overview
-Lecture: Architecting Android Apps
-Lab: Status Activity
+LECTURE: Android Overview::
+Overview of Android, it's history, big picture of its stack, development tools.
+
+DEMO: Status Activity Layout::
+Create StatusActivity layout file, using Relative Layout. Add a button and an edit text.
+
+LAB: Status Activity Layout::
+Add EditText to Status Activity layout, setup its height, width, id, and hint.
+Position it below the button, and have it take entire remaining screen space.
+
+
+LECTURE: Android UI::
+User Interface Events module.
+
+DEMO: Implement onClickListener for the update button::
+Add the Java binding to handle the update button. Use LogCat to print out the output to the log and verify the button works.
+
+
+LAB: Handling UI Events::
+. Add a `TextView` with id `text_count` to status activity. (hint: don't forget to update landscape layout as well!).
+. Add a `TextWatcher` listener to `editStatus` and update `textCount` as user types.
+. Tell user how many characters are left, assuming we have 140 total.
+
+
+HOMEWORK::
+* Review _FastTrack to Java_ chapters on OOP and Packaging
+* Watch http://mrkn.co/f/595[Eclipse Video]
 
 
 == Parking Lot ==
