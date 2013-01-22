@@ -1,0 +1,23 @@
+= Qualcomm Android Bootcamp =
+
+== Day 1 ==
+
+Lecture: Android Overview
+Lecture: Architecting Android Apps
+Lab: Status Activity
+
+
+== Parking Lot ==
+
+* Testing
+* Memory management
+* Async IPC
+* NDK/JNI
+* Wifi stack
+* Bluetooth stack
+* Creating/extending framework
+* Tools: debugger, tracing, performance
+
+== Homework ==
+
+* http://mrkn.co/f/595[Eclipse Video]
