@@ -45,15 +45,20 @@ HOMEWORK::
 
 == Day 2 ==
 
+REVIEW: Activities and Android UI Module
+
 LAB: Add a Dialog while posting::
 Hint: Use http://developer.android.com/reference/android/app/ProgressDialog.html[ProgressDialog]
 Use AsyncTask's callbacks to start/stop the progress dialog.
 
-LAB: Create Main activity::
-Create activity that will be the main entry point into the app.
+REVIEW: Review questions for Activities and Android UI module.
 
 LECTURE: ActionBar::
 How Action Bar providers for app navigation: (Action_Bar Module)
+
+LAB: Create Main activity::
+Create activity that will be the main entry point into the app.
+
 
 DEMO: Adding menu Status Update::
 Add menu to jump to status activity.

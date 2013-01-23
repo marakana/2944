@@ -1,9 +1,11 @@
 package com.qcom.yamba;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Debug;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -18,7 +20,6 @@ import com.marakana.android.yamba.clientlib.YambaClient;
 
 public class StatusActivity extends Activity {
 	private int defaultTextColor;
-	private Button buttonUpdate;
 	private EditText textStatus;
 	private TextView textCount;
 
@@ -27,22 +28,10 @@ public class StatusActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_status);
 
-		buttonUpdate = (Button) findViewById(R.id.button_update);
 		textStatus = (EditText) findViewById(R.id.text_status);
 		textCount = (TextView) findViewById(R.id.text_count);
 		defaultTextColor = textCount.getTextColors().getDefaultColor();
 
-		buttonUpdate.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				final String status = textStatus.getText().toString();
-
-				new UpdateStatusTask().execute(status);
-				
-				Log.d("Yamba", "button clicked: " + status);
-			}
-
-		});
 
 
 		textStatus.addTextChangedListener(new TextWatcher() {
@@ -72,21 +61,62 @@ public class StatusActivity extends Activity {
 		});
 	}
 
+	public void onButtonUpdate(View view) {
+		final String status = textStatus.getText().toString();
 
+		new UpdateStatusTask().execute(status);
+		
+		Log.d("Yamba", "button clicked: " + status);
+	}
+
+	
 	class UpdateStatusTask extends AsyncTask<String, Void, String> {
-
+		ProgressDialog dialog;
+		
+		// Runs on UI thread, before background job gets started
 		@Override
-		protected String doInBackground(String... params) {
-			YambaClient client = new YambaClient("student", "password");
-			client.updateStatus(params[0]);
-			return "Successfully posted";
+		protected void onPreExecute() {
+			dialog = ProgressDialog.show(StatusActivity.this, "Posting", "Please wait...");
 		}
 
+		// Executes on a worker thread
+		@Override
+		protected String doInBackground(String... params) {
+			String ret;
+			try {
+				YambaClient client = new YambaClient("student", "password");
+				client.updateStatus(params[0]);
+				ret = "Successfully posted";
+			} catch (Exception e) {
+				Log.e("Yamba", "Failed to post", e);
+				ret = "Failed";
+			}
+			return ret;
+		}
+
+		// Runs on UI thread, when done.
 		@Override
 		protected void onPostExecute(String result) {
+			dialog.dismiss();
 			Toast.makeText(StatusActivity.this, result,
 					Toast.LENGTH_LONG).show();
 		}
 
+	}
+
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+//		Debug.startMethodTracing("YambaStatusAcitivity.trace");
+	}
+
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+//		Debug.stopMethodTracing();
 	};
+	
+	
 }
