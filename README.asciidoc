@@ -41,7 +41,7 @@ Explain the security model, and need for app to declare what permissions it want
 HOMEWORK::
 * Review _FastTrack to Java_ chapters on OOP and Packaging
 * Watch http://mrkn.co/f/595[Eclipse Video]
-* Read ahead on Fragments module <<Fragments>>.
+* Read ahead on Fragments module (Fragments Module).
 
 == Day 2 ==
 
@@ -53,16 +53,16 @@ LAB: Create Main activity::
 Create activity that will be the main entry point into the app.
 
 LECTURE: ActionBar::
-How Action Bar providers for app navigation: <<Action_Bar>>
+How Action Bar providers for app navigation: (Action_Bar Module)
 
 DEMO: Adding menu Status Update::
 Add menu to jump to status activity.
 
 LECTURE: Intents::
-How intents work: <<Intents>>
+How intents work: (Intents Module)
 
 LECTURE: Fragments Overview::
-What fragments are, why you'd care, and how to use them statically: <<Fragments>>.
+What fragments are, why you'd care, and how to use them statically: (Fragments Module).
 
 DEMO: Using fragments statically::
 Convert the status activity to status activity + status fragment.
