@@ -4,7 +4,6 @@ import java.util.List;
 
 import android.app.IntentService;
 import android.content.Intent;
-import android.os.IBinder;
 import android.util.Log;
 
 import com.marakana.android.yamba.clientlib.YambaClient;
@@ -15,6 +14,10 @@ public class RefreshService extends IntentService {
 	private static final String TAG = "RefreshService";
 	private static final int MAX_POSTS = 20;
 
+	public RefreshService() {
+		super(TAG);
+	}
+	
 	@Override
 	public void onCreate() {
 		super.onCreate();
@@ -37,8 +40,6 @@ public class RefreshService extends IntentService {
 			Log.e(TAG, "Failed to fetch timeline", e);
 			e.printStackTrace();
 		}
-
-		return super.onStartCommand(intent, flags, startId);
 	}
 
 	@Override
