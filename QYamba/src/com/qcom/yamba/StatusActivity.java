@@ -87,7 +87,7 @@ public class StatusActivity extends Activity {
 			String ret;
 			try {
 				YambaClient client = new YambaClient("student", "password");
-				client.updateStatus(params[0]);
+				client.postStatus(params[0]);
 				ret = "Successfully posted";
 			} catch (Exception e) {
 				Log.e("Yamba", "Failed to post", e);

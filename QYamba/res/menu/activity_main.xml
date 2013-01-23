@@ -4,8 +4,14 @@
         android:id="@+id/item_status_update"
         android:icon="@android:drawable/ic_menu_edit"
         android:showAsAction="always|withText"
-        android:title="@string/status_update" android:titleCondensed="@string/button_update">
-
+        android:title="@string/status_update"
+        android:titleCondensed="@string/button_update">
+    </item>
+    <item
+        android:id="@+id/item_refresh"
+        android:showAsAction="always|withText"
+        android:title="@string/refresh"
+        android:icon="@android:drawable/ic_menu_rotate">
     </item>
 
 </menu>

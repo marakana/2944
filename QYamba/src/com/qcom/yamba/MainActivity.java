@@ -24,7 +24,11 @@ public class MainActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.item_status_update:
-			startActivity(new Intent(this, StatusActivity.class));
+			startActivity(new Intent(this, StatusActivity.class)
+					.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
+			return true;
+		case R.id.item_refresh:
+			startService( new Intent(this, RefreshService.class) );
 			return true;
 		default:
 			return false;

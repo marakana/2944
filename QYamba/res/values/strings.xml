@@ -8,5 +8,6 @@
     <string name="status_hint">What\'s going on?</string>
     <string name="default_count">140</string>
     <string name="status_update">Status Update</string>
+    <string name="refresh">Refresh</string>
 
 </resources>

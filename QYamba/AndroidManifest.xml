@@ -27,6 +27,7 @@
             android:name="com.qcom.yamba.StatusActivity"
             android:label="@string/app_name" >
         </activity>
+        <service android:name="com.qcom.yamba.RefreshService"></service>
     </application>
 
 </manifest>
