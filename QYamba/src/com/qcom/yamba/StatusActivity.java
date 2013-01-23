@@ -2,16 +2,16 @@ package com.qcom.yamba;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
-import android.os.Debug;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,11 +28,13 @@ public class StatusActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_status);
 
+		if (Build.VERSION.SDK_INT > Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+			getActionBar().setDisplayHomeAsUpEnabled(true);
+		}
+
 		textStatus = (EditText) findViewById(R.id.text_status);
 		textCount = (TextView) findViewById(R.id.text_count);
 		defaultTextColor = textCount.getTextColors().getDefaultColor();
-
-
 
 		textStatus.addTextChangedListener(new TextWatcher() {
 
@@ -65,18 +67,18 @@ public class StatusActivity extends Activity {
 		final String status = textStatus.getText().toString();
 
 		new UpdateStatusTask().execute(status);
-		
+
 		Log.d("Yamba", "button clicked: " + status);
 	}
 
-	
 	class UpdateStatusTask extends AsyncTask<String, Void, String> {
 		ProgressDialog dialog;
-		
+
 		// Runs on UI thread, before background job gets started
 		@Override
 		protected void onPreExecute() {
-			dialog = ProgressDialog.show(StatusActivity.this, "Posting", "Please wait...");
+			dialog = ProgressDialog.show(StatusActivity.this, "Posting",
+					"Please wait...");
 		}
 
 		// Executes on a worker thread
@@ -98,25 +100,36 @@ public class StatusActivity extends Activity {
 		@Override
 		protected void onPostExecute(String result) {
 			dialog.dismiss();
-			Toast.makeText(StatusActivity.this, result,
-					Toast.LENGTH_LONG).show();
+			Toast.makeText(StatusActivity.this, result, Toast.LENGTH_LONG)
+					.show();
 		}
 
 	}
 
-
 	@Override
 	protected void onStart() {
 		super.onStart();
-//		Debug.startMethodTracing("YambaStatusAcitivity.trace");
+		// Debug.startMethodTracing("YambaStatusAcitivity.trace");
 	}
-
 
 	@Override
 	protected void onStop() {
 		super.onStop();
-//		Debug.stopMethodTracing();
+		// Debug.stopMethodTracing();
 	};
-	
-	
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			Intent goHomeIntent = new Intent(this, MainActivity.class);
+			goHomeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).addFlags(
+					Intent.FLAG_ACTIVITY_NEW_TASK);
+			startActivity(goHomeIntent);
+			return true;
+		default:
+			return false;
+		}
+	}
+
 }
