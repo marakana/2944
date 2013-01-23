@@ -59,12 +59,27 @@ How Action Bar providers for app navigation: (Action_Bar Module)
 LAB: Create Main activity::
 Create activity that will be the main entry point into the app.
 
-
 DEMO: Adding menu Status Update::
 Add menu to jump to status activity.
 
 LECTURE: Intents::
 How intents work: (Intents Module)
+
+LECTURE: Services::
+Cover the Services module.
+
+LAB: Add a Refresh menu item::
+Add a _Refresh_ menu item to the action bar. Hint: use +ic_menu_rotate+ icon.
+
+DEMO: RefreshService::
+Build a service to pull the data from the cloud.
+
+LECURE: Content Providers::
+Module on CP
+
+DEMO: Implement StatusProvider::
+Build a DB-based content provider.
+
 
 LECTURE: Fragments Overview::
 What fragments are, why you'd care, and how to use them statically: (Fragments Module).
