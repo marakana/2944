@@ -21,8 +21,8 @@ Add the Java binding to handle the update button. Use LogCat to print out the ou
 
 
 LAB: Handling UI Events::
-. Add a `TextView` with id `text_count` to status activity. (hint: don't forget to update landscape layout as well!).
-. Add a `TextWatcher` listener to `editStatus` and update `textCount` as user types.
+. Add a `TextView` with id `text_count` to status activity.
+. Add a `TextWatcher` listener to `textStatus` and update `textCount` as user types.
 . Tell user how many characters are left, assuming we have 140 total.
 
 
