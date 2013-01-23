@@ -25,10 +25,53 @@ LAB: Handling UI Events::
 . Add a `TextWatcher` listener to `textStatus` and update `textCount` as user types.
 . Tell user how many characters are left, assuming we have 140 total.
 
+EVIEW: Android UI::
+Review questions for the User Interface module
+
+DEMO: Adding the YambaClient jar to the project::
+Demonstrate how to download and use a third party JAR file into the app project.
+
+DEMO: Async Task::
+Use `YambaClient` to post status update to the cloud. Show how it won't work on UI thread, creating the motivation for `AsyncTask`.
+
+DEMO: Adding Internet permissions::
+Explain the security model, and need for app to declare what permissions it wants to use.
+
 
 HOMEWORK::
 * Review _FastTrack to Java_ chapters on OOP and Packaging
 * Watch http://mrkn.co/f/595[Eclipse Video]
+* Read ahead on Fragments module <<Fragments>>.
+
+== Day 2 ==
+
+LAB: Add a Dialog while posting::
+Hint: Use http://developer.android.com/reference/android/app/ProgressDialog.html[ProgressDialog]
+Use AsyncTask's callbacks to start/stop the progress dialog.
+
+LAB: Create Main activity::
+Create activity that will be the main entry point into the app.
+
+LECTURE: ActionBar::
+How Action Bar providers for app navigation: <<Action_Bar>>
+
+DEMO: Adding menu Status Update::
+Add menu to jump to status activity.
+
+LECTURE: Intents::
+How intents work: <<Intents>>
+
+LECTURE: Fragments Overview::
+What fragments are, why you'd care, and how to use them statically: <<Fragments>>.
+
+DEMO: Using fragments statically::
+Convert the status activity to status activity + status fragment.
+
+LAB: Use static fragments::
+Create a main activity that would host both preference fragment as well as status fragment.
+
+HOMEWORK: Read ahead on advanced fragments::
+Topics on how to communicate from fragment to activity, how to use back stack, and similar.
 
 
 == Parking Lot ==
