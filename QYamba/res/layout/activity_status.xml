@@ -35,7 +35,7 @@
         android:layout_alignBaseline="@+id/button_update"
         android:layout_alignBottom="@+id/button_update"
         android:layout_alignParentLeft="true"
-        android:text="140"
+        android:text="@string/default_count"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
