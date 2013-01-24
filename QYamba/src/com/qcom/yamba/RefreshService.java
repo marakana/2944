@@ -28,6 +28,7 @@ public class RefreshService extends IntentService {
 	@Override
 	public void onHandleIntent(Intent intent) {
 		Log.d(TAG, "onStart");
+		boolean hasNewStatuses = false;
 
 		try {
 			YambaClient client = new YambaClient("student", "password");
@@ -37,9 +38,12 @@ public class RefreshService extends IntentService {
 				values.put(StatusContract.Columns._ID, status.getId());
 				values.put(StatusContract.Columns.USER, status.getUser());
 				values.put(StatusContract.Columns.TEXT, status.getMessage());
-				values.put(StatusContract.Columns.CREATED_AT,
-						status.getCreatedAt().getTime());
-				getContentResolver().insert(StatusContract.CONTENT_URI, values);
+				values.put(StatusContract.Columns.CREATED_AT, status
+						.getCreatedAt().getTime());
+				if (getContentResolver().insert(StatusContract.CONTENT_URI,
+						values) != null) {
+					hasNewStatuses = true;
+				}
 
 				Log.d(TAG,
 						String.format("%s: %s", status.getUser(),
@@ -48,6 +52,10 @@ public class RefreshService extends IntentService {
 		} catch (YambaClientException e) {
 			Log.e(TAG, "Failed to fetch timeline", e);
 			e.printStackTrace();
+		}
+		
+		if(hasNewStatuses) {
+			sendBroadcast( new Intent("com.qcom.yamba.action.NEW_STATUS") );
 		}
 	}
 
