@@ -107,6 +107,16 @@ Create a main activity that would host both preference fragment as well as statu
 HOMEWORK: Read ahead on advanced fragments::
 Topics on how to communicate from fragment to activity, how to use back stack, and similar.
 
+LECTURE: Broadcast Receivers::
+What they are, lifecycle, etc.
+
+DEMO: Implementing BootReceiver::
+Wakes up at boot completed time, prints to Logcat.
+
+DEMO: Alarm Manager::
+Implement AlarmManager to kick-start the Refresh Service.
+
+
 
 == Parking Lot ==
 
