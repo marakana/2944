@@ -41,7 +41,6 @@ Explain the security model, and need for app to declare what permissions it want
 HOMEWORK::
 * Review _FastTrack to Java_ chapters on OOP and Packaging
 * Watch http://mrkn.co/f/595[Eclipse Video]
-* Read ahead on Fragments module (Fragments Module).
 
 == Day 2 ==
 
@@ -74,7 +73,7 @@ Add a _Refresh_ menu item to the action bar. Hint: use +ic_menu_rotate+ icon.
 DEMO: RefreshService::
 Build a service to pull the data from the cloud.
 
-LECURE: Content Providers::
+LECTURE: Content Providers::
 Module on Content Provider.
 
 DEMO: Implement StatusProvider::
@@ -82,6 +81,13 @@ Build a DB-based content provider. Copy code from Yamba repo.
 
 LAB: Add Purge DB feature::
 Implement delete() in StatusProvider and add a button to the action bar to delete all records in the database.
+
+HOMEWORK::
+* Read Content Provider module.
+* Read ahead on Fragments module (Fragments Module).
+
+
+== Day 3 ==
 
 LECTURE: Lists and Adapters::
 Discussion on what they are.
