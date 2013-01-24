@@ -89,6 +89,15 @@ HOMEWORK::
 
 == Day 3 ==
 
+LECTURE: Security Overview::
+Discuss permissions.
+
+DEMO: Add custom permission::
+Add permission to protect the Refresh Service.
+
+LAB: Add custom permission to Content Provider::
+Protect the StatusProvider with a custom permission.
+
 LECTURE: Lists and Adapters::
 Discussion on what they are.
 

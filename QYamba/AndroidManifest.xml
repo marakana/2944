@@ -10,10 +10,15 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	<uses-permission android:name="com.qcom.yamba.permission.REFRESH"/>
-	
+    <uses-permission android:name="com.qcom.yamba.permission.REFRESH" />
+    <uses-permission android:name="com.qcom.yamba.permission.DATA"/>
+
     <permission
         android:name="com.qcom.yamba.permission.REFRESH"
+        android:protectionLevel="signature" >
+    </permission>
+    <permission
+        android:name="com.qcom.yamba.permission.DATA"
         android:protectionLevel="signature" >
     </permission>
 
@@ -35,8 +40,9 @@
             android:label="@string/app_name" >
         </activity>
 
-        <service android:name="com.qcom.yamba.RefreshService" 
-            android:permission="com.qcom.yamba.permission.REFRESH">
+        <service
+            android:name="com.qcom.yamba.RefreshService"
+            android:permission="com.qcom.yamba.permission.REFRESH" >
             <intent-filter>
                 <action android:name="com.qcom.yamba.action.REFRESH" />
             </intent-filter>
@@ -44,7 +50,9 @@
 
         <provider
             android:name="com.qcom.yamba.StatusProvider"
-            android:authorities="com.qcom.yamba.provider" >
+            android:authorities="com.qcom.yamba.provider"
+            android:readPermission="com.qcom.yamba.permission.DATA"
+            android:writePermission="com.qcom.yamba.permission.DATA" >
         </provider>
     </application>
 
