@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
 					.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
 			return true;
 		case R.id.item_refresh:
-			startService( new Intent(this, RefreshService.class) );
+			startService( new Intent("com.qcom.yamba.action.REFRESH") );
 			return true;
 		case R.id.item_purge:
 			int records = getContentResolver().delete(StatusContract.CONTENT_URI, "1", null);
