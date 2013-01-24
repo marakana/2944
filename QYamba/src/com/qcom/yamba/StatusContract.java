@@ -13,7 +13,7 @@ public class StatusContract {
 
 	public static final String DB_NAME = "timeline.db";
 	public static final int DB_VERSION = 2;
-	public static final String TABLE = "timeline";
+	public static final String TABLE = "status";
 	public static final String SORT_ORDER = Columns.CREATED_AT + " desc";
 
 	public static final class Columns implements BaseColumns {

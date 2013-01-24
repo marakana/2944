@@ -28,6 +28,8 @@
             android:label="@string/app_name" >
         </activity>
         <service android:name="com.qcom.yamba.RefreshService"></service>
+        <provider android:name="com.qcom.yamba.StatusProvider"
+            android:authorities="com.qcom.yamba.provider"></provider>
     </application>
 
 </manifest>

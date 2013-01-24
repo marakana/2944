@@ -3,6 +3,7 @@ package com.qcom.yamba;
 import java.util.List;
 
 import android.app.IntentService;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.util.Log;
 
@@ -17,7 +18,7 @@ public class RefreshService extends IntentService {
 	public RefreshService() {
 		super(TAG);
 	}
-	
+
 	@Override
 	public void onCreate() {
 		super.onCreate();
@@ -31,7 +32,15 @@ public class RefreshService extends IntentService {
 		try {
 			YambaClient client = new YambaClient("student", "password");
 			List<Status> timeline = client.getTimeline(MAX_POSTS);
+			ContentValues values = new ContentValues();
 			for (Status status : timeline) {
+				values.put(StatusContract.Columns._ID, status.getId());
+				values.put(StatusContract.Columns.USER, status.getUser());
+				values.put(StatusContract.Columns.TEXT, status.getMessage());
+				values.put(StatusContract.Columns.CREATED_AT,
+						status.getCreatedAt().getTime());
+				getContentResolver().insert(StatusContract.CONTENT_URI, values);
+
 				Log.d(TAG,
 						String.format("%s: %s", status.getUser(),
 								status.getMessage()));

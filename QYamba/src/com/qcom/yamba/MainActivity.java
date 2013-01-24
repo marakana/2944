@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -29,6 +30,10 @@ public class MainActivity extends Activity {
 			return true;
 		case R.id.item_refresh:
 			startService( new Intent(this, RefreshService.class) );
+			return true;
+		case R.id.item_purge:
+			int records = getContentResolver().delete(StatusContract.CONTENT_URI, "1", null);
+			Toast.makeText(this, "Deleted records: "+records, Toast.LENGTH_LONG).show();
 			return true;
 		default:
 			return false;

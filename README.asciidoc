@@ -80,6 +80,9 @@ Module on Content Provider.
 DEMO: Implement StatusProvider::
 Build a DB-based content provider. Copy code from Yamba repo.
 
+LAB: Add Purge DB feature::
+Implement delete() in StatusProvider and add a button to the action bar to delete all records in the database.
+
 LECTURE: Lists and Adapters::
 Discussion on what they are.
 

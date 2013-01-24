@@ -43,10 +43,13 @@ public class StatusProvider extends ContentProvider {
 		return 0;
 	}
 
+	// SQL: delete from status where <selection>=<selectionArgs>
+	// Hint: use db.delete();
 	@Override
 	public int delete(Uri uri, String selection, String[] selectionArgs) {
-		// TODO Auto-generated method stub
-		return 0;
+		SQLiteDatabase db = dbHelper.getWritableDatabase();
+		getContext().getContentResolver().notifyChange(uri, null);
+		return db.delete(StatusContract.TABLE, selection, selectionArgs);
 	}
 
 	@Override
