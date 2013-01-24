@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -23,16 +25,16 @@ public class StatusFragment extends Fragment {
 	private TextView textCount;
 	private Button updateButton;
 
-	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
-		super.onActivityCreated(savedInstanceState);
-		getActivity().setContentView(R.layout.fragment_status);
+	
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		View view = inflater.inflate(R.layout.fragment_status, container, false);
 
-		textStatus = (EditText) getActivity().findViewById(R.id.text_status);
-		textCount = (TextView) getActivity().findViewById(R.id.text_count);
+		textStatus = (EditText) view.findViewById(R.id.text_status);
+		textCount = (TextView) view.findViewById(R.id.text_count);
 		defaultTextColor = textCount.getTextColors().getDefaultColor();
 		
-		updateButton = (Button)getActivity().findViewById(R.id.button_update);
+		updateButton = (Button)view.findViewById(R.id.button_update);
 		updateButton.setOnClickListener( new OnClickListener() {
 			public void onClick(View view) {
 				final String status = textStatus.getText().toString();
@@ -69,6 +71,7 @@ public class StatusFragment extends Fragment {
 			}
 
 		});
+		return view;
 	}
 
 	class UpdateStatusTask extends AsyncTask<String, Void, String> {
