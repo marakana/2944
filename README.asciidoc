@@ -125,6 +125,8 @@ Wakes up at boot completed time, prints to Logcat.
 DEMO: Alarm Manager::
 Implement AlarmManager to kick-start the Refresh Service.
 
+LAB: Create NotificationReceiver::
+Similar to BootReceiver, but uses NotificationManager.
 
 
 == Parking Lot ==
