@@ -12,7 +12,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="com.qcom.yamba.permission.REFRESH" />
-    <uses-permission android:name="com.qcom.yamba.permission.DATA"/>
+    <uses-permission android:name="com.qcom.yamba.permission.DATA" />
 
     <permission
         android:name="com.qcom.yamba.permission.REFRESH"
@@ -55,13 +55,17 @@
             android:readPermission="com.qcom.yamba.permission.DATA"
             android:writePermission="com.qcom.yamba.permission.DATA" >
         </provider>
-        
-        <receiver android:name="com.qcom.yamba.BootReceiver">
-            <intent-filter >
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+
+        <receiver android:name="com.qcom.yamba.BootReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        
+        <receiver android:name="com.qcom.yamba.NotificationReceiver" >
+            <intent-filter>
+                <action android:name="com.qcom.yamba.action.NEW_STATUS" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
